@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+/* Para color texto de nav*/
+.lnkmenu{
+    color:black; 
+}
+
+/* Para cantidad de columnas de los card*/
+.card-columns {
+    column-count: 3;
+}
+
+.active {
+    font-weight: bold
+}

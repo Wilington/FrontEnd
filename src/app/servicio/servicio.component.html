@@ -1,0 +1,51 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" >
+        <li class="breadcrumb-item active"><a class="lnkmenu" (click)="listar('Todos')" href="#">Todos</a></li>
+        <li class="breadcrumb-item"><a class="lnkmenu" (click)="listar('Autos')" href="#">Autos</a></li>
+        <li class="breadcrumb-item"><a class="lnkmenu" (click)="listar('Salud')" href="#">Salud</a></li>
+        <li class="breadcrumb-item"><a class="lnkmenu" (click)="listar('Hogar')" href="#">Hogar</a></li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-8">
+        <div class="card-columns" >
+            <div class="card" *ngFor="let servicio of servicios | filter: sltipo; let i = index">
+                <div class="card-body">
+                    <h5 class="card-title">{{servicio.nombre}}</h5>
+                    <p class="card-text">{{servicio.descripcion}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link" (click)="setServicio(servicio.id)">Editar</a>
+                    <a href="#" class="card-link" (click)="eliminarServicio(servicio.id)">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Servicio</h5>
+                <div class="form-group">
+                    <label for="txtNombre">Nombre</label>
+                    <input type="text" class="form-control" id="txtNombre" [(ngModel)]="txtNom">
+                </div>
+                <div class="form-group">
+                    <label for="txtDescripcion">Descripción</label>
+                    <input type="text" class="form-control" id="txtDescripcion" [(ngModel)]="txtDes">
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-outline-success" (click)="actualizarServicio()">Grabar</button>
+                <button type="button" class="btn btn-outline-danger" (click)="limpiar()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .breadcrumb li:before { 
+        content: "";
+    }
+</style>
